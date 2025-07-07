@@ -4,6 +4,14 @@ const bodyParser = require('body-parser')
 const connection = require("./database/connection")
 
 
+const categoriesController = require("./categories/categoriesController")
+const booksController = require("./books/booksController")
+
+const Books = require("./books/Books")
+const Category = require("./categories/Category")
+
+
+
 // View Engine
 app.set('view engine', 'ejs')
 
@@ -22,6 +30,11 @@ connection
     }).catch((error) => {
         console.log(error)
     })
+
+
+// Rotas
+app.use("/", categoriesController)
+app.use("/", booksController)
 
 app.get("/", (req, res) => {
     res.render('index')
