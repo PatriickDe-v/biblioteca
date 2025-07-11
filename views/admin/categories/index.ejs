@@ -1,66 +1,99 @@
 <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/navbar.ejs') %>
         <br>
-        <div
-            class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-            <table class="w-full text-left table-auto min-w-max">
-                <thead>
-                    <tr>
-                        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                            <p
-                                class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                                ID
-                            </p>
-                        </th>
-                        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                            <p
-                                class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                                Título
-                            </p>
-                        </th>
-                        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                            <p
-                                class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                                Slug
-                            </p>
-                        </th>
-                        <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                            <p
-                                class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
-                            </p>
-                        </th>
-                    </tr>
-                </thead>
-                <% categories.forEach(category => { %>
-                    <tbody>
+        <!--<div class="flex pt-14">
+            <aside class="fixed left-0 top-14 w-60 bg-white overflow-y-auto py-3">
+                <nav class="space-y-1">
+                    <a href="/" class="flex items-center gap-6 px-6 py-2 bg-gray-100">
+                        <i class="ri-home-4-full text-xl">
+                            <span>Inicio</span>
+                        </i>
+                    </a>
+                </nav>
+            </aside>
+        </div> -->
+        <div>
+            <h2>Categorias</h2>
+            <br>
+            <a href="/admin/categories/new"
+                class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 cursor-pointer"
+                type="button">
+                Criar categoria
+            </a>
+        </div>
+        <br>
+        <div class="col">
+            <div
+                class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+                <table class="w-full text-left table-auto min-w-max">
+                    <thead>
                         <tr>
-                            <td class="p-4 border-b border-blue-gray-50">
+                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p
-                                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                    <%= category.id %>
+                                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                                    ID
                                 </p>
-                            </td>
-                            <td class="p-4 border-b border-blue-gray-50">
+                            </th>
+                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p
-                                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                    <%= category.title %>
+                                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                                    Título
                                 </p>
-                            </td>
-                            <td class="p-4 border-b border-blue-gray-50">
+                            </th>
+                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p
-                                    class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                    <%= category.slug %>
+                                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                                    Slug
                                 </p>
-                            </td>
-                            <td class="p-4 border-b border-blue-gray-50">
-                                <a href="#"
-                                    class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-                                    Edit
-                                </a>
-                            </td>
-                    </tbody>
-                    <% }) %>
-            </table>
+                            </th>
+                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                <p
+                                    class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                                    Ações
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <% categories.forEach(category=> { %>
+                        <tbody>
+                            <tr>
+                                <td class="p-4 border-b border-blue-gray-50">
+                                    <p
+                                        class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        <%= category.id %>
+                                    </p>
+                                </td>
+                                <td class="p-4 border-b border-blue-gray-50">
+                                    <p
+                                        class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        <%= category.title %>
+                                    </p>
+                                </td>
+                                <td class="p-4 border-b border-blue-gray-50">
+                                    <p
+                                        class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        <%= category.slug %>
+                                    </p>
+                                </td>
+                                <td class="p-4 border-b border-blue-gray-50">
+                                    <button
+                                        class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 cursor-pointer"
+                                        type="button">
+                                        Editar
+                                    </button>
+                                    <form method="POST" action="/categories/delete" class="inline">
+                                        <input type="hidden" name="id" value="<%= category.id %>">
+                                        <button
+                                            class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 cursor-pointer"
+                                            >
+                                            Excluir
+                                        </button>
+                                    </form>
+                                </td>
+                        </tbody>
+                        <% }) %>
+                </table>
+            </div>
         </div>
 
         <%- include('../../partials/footer.ejs') %>
